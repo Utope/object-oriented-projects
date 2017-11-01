@@ -23,8 +23,7 @@ public class Main {
 		
 		
 		
-		menu.display();
-		
+		menu.display();		
 		
 	}
 	

@@ -111,8 +111,49 @@ public class Menu {
 				}while(correctInput);
 				break;
 			case 7:
+				
+				String name;
+				int category;
+				boolean heartHealthy = false;
+				float price;
+				
+				System.out.println("~~~ Adding item New Menu Item ~~~");
+				System.out.println("Input name:");
+				name = sc.nextLine();
+				System.out.println("Input category(APPETIZERS=1, MAIN_DISH=2, DESERT=3)");
+				category = Integer.valueOf(sc.nextLine());
+				System.out.println("Is Heart Healthy(y,n):");
+				
+				String hhchar = sc.nextLine();
+				if(hhchar.equals("y")) {
+					heartHealthy = true;
+				}else if(hhchar.equals("n")) {
+					heartHealthy = false;
+				}
+				
+				System.out.println("Input Price");
+				price = Float.valueOf(sc.nextLine());
+				
+				this.items.add(new MenuItem(name,category,heartHealthy,price));
+				System.out.println("Item succesfully added!");
+				
+				
 				break;
 			case 8:
+				
+				System.out.println("~~~ Deleting items ~~~");
+				for(int i = 0; i < this.items.size(); i++) {
+					System.out.println("[" + i + "]" + items.get(i));
+				}
+				
+				System.out.println("Enter index of item you want to delete:");
+				
+				int index = Integer.valueOf(sc.nextLine());
+				
+				this.delete(items.get(index));
+				
+				System.out.println("Item succesfully deleted");
+				
 				break;
 			}
 			
