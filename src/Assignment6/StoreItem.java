@@ -6,7 +6,9 @@ public class StoreItem {
 	private String itemPrice;
 	
 	public StoreItem(String code, String descript, String price) {
-		
+		this.itemCode = code;
+		this.itemDescription = descript;
+		this.itemPrice = price;
 	}
 
 	public String getItemCode() {
