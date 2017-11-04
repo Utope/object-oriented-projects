@@ -29,9 +29,21 @@ public class BasicReceipt implements Receipt {
 	
 	@Override
 	public void prtReceipt() {
+		System.out.println(this.storeInfo + "\n");
 		for(StoreItem item: items.getItems()) {
-			System.out.println(item.getItemCode() + "-" + item.getItemDescription() + "-$" + item.getItemPrice() + "\n");
-		}	
+			System.out.println(item.getItemCode() + "-" + item.getItemDescription() + "-$" + item.getItemPrice());
+		}
+		
+		System.out.println();
+		
+		if(tc != null) {
+			System.out.println("Total - $" + items.getTotalCost());
+			System.out.println("Total W/(Tax) - $" + (items.getTotalCost() + tc.computeTax(items, date)) + "\n");
+		}else {
+			System.out.println("Total - $" + items.getTotalCost() + "\n");
+		}
+		System.out.println(this.date + "\n");
+
 	}
 	
 	public String getStoreInfo() {

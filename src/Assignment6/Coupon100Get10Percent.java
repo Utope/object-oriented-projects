@@ -13,7 +13,7 @@ public class Coupon100Get10Percent implements AddOn, Coupon {
 
 	@Override
 	public String getLines() {
-		return "Spent over $100! 10% Off next Purchase!";
+		return "Spent over $100! 10% Off next Purchase!\n";
 	}
 
 }

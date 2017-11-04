@@ -23,7 +23,10 @@ public class Client {
 	 */
 	public static void main(String[] args) {
 		PurchasedItems items = new PurchasedItems();
-		items.addItem(new StoreItem("432", "Computer", "100.01"));
+		items.addItem(new StoreItem("432", "Desktop", "1200.00"));
+		items.addItem(new StoreItem("422", "Laptop", "99.99"));
+		items.addItem(new StoreItem("12", "Bread", "3.00"));
+		items.addItem(new StoreItem("132", "Milk", "4.00"));
 		
 		ReceiptFactory factory = new ReceiptFactory("maryland.txt");
 		Receipt receipt = factory.getReceipt(items, Date.valueOf("2016-08-14"));
