@@ -103,7 +103,10 @@ public class ReceiptFactory {
 			}
 		}
 		
-		return (Receipt)dec;
-		
+		if(dec == null) {
+			return receipt;
+		}else {
+			return (Receipt)dec;
+		}
 	}
 }

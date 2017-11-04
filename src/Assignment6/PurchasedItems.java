@@ -13,6 +13,10 @@ public class PurchasedItems {
 		items.add(item);
 	}
 	
+	public void clearItems() {
+		items.clear();
+	}
+	
 	public double getTotalCost() {
 		double totalCost = 0.0;
 		for(StoreItem item: items) {

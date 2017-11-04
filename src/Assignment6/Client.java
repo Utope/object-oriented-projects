@@ -33,6 +33,7 @@ public class Client {
 	 */
 	public static void main(String[] args) {
 		
+		// This is to easyily switch between state files
 		System.out.println("Which State Store are you in?");
 		System.out.println("1: Maryland");
 		System.out.println("2: California");
@@ -75,8 +76,7 @@ public class Client {
 		switch(choice2){
 			case 1:
 				System.out.println("Clearing PurchasedItems...\n");
-				Client.items = null;
-				Client.items = new PurchasedItems();
+				items.clearItems();
 				mainMenu();
 				break;
 			case 2:
@@ -87,22 +87,27 @@ public class Client {
 						StoreItem item = storeItems.get(i);
 						System.out.println( "[" + i + "]" + item.getItemPrice() + " - " + item.getItemDescription());
 					}
-					System.out.println("press inccorect key to go back");
+					System.out.println("press enter with no key input to go back to main menu");
 					System.out.println("select an item:");
-					int choice = Integer.valueOf(Client.scanner.nextLine());
-					if(choice < storeItems.size() && choice > 0) {
-						System.out.println("Adding " + storeItems.get(choice).getItemDescription());
-						Client.items.addItem(storeItems.get(choice));
-					}else {
+					try {
+						int choice = Integer.valueOf(Client.scanner.nextLine());
+						if(choice < storeItems.size() && choice >= 0) {
+							System.out.println("Adding " + storeItems.get(choice).getItemDescription());
+							Client.items.addItem(storeItems.get(choice));
+						}else {
+							mainMenu();
+						}
+					}catch(NumberFormatException e) {
 						mainMenu();
 					}
+
 					
 				}
 				
 				
 				break;
 			case 3:
-				
+
 				Receipt receipt = factory.getReceipt(items, Date.valueOf("2016-08-14"));
 				receipt.prtReceipt();
 				mainMenu();
